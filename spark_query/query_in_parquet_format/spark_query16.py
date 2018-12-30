@@ -13,7 +13,7 @@ from pyspark.sql import functions as F
 
 fun1 = lambda x, y: x * (1 - y)
 
-part_filter = part.filter((part.P_BRAND != "Brand#45") & ~(part.P_TYPE.like("MEDIUM POLISHED")) &
+part_filter = part.filter((part.P_BRAND != "Brand#45") & ~(part.P_TYPE.like("MEDIUM POLISHED%")) &
                           (part.P_SIZE.isin([7, 13, 21, 28, 33, 49, 50, 1]))) \
     .select(part.P_PARTKEY, part.P_BRAND, part.P_TYPE, part.P_SIZE)
 

@@ -2,7 +2,7 @@ from pyspark import SparkContext
 from pyspark.python.pyspark.shell import spark
 from pyspark.sql import SQLContext
 
-sc = SparkContext(appName="query17")
+sc = SparkContext(appName="query18")
 sqlContext = SQLContext(sc)
 
 customer = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/customer.parquet")
