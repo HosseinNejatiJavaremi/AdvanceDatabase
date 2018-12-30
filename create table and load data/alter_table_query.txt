@@ -1,0 +1,9 @@
+ALTER table partsupp drop column temp;
+ALTER table supplier drop column temp;
+ALTER table region drop column temp;
+ALTER table part drop column temp;
+ALTER table orders drop column temp;
+ALTER table nation drop column temp;
+ALTER table lineitem drop column temp;
+ALTER table customer drop column temp;
+

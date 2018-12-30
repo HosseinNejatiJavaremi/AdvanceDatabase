@@ -1,0 +1,31 @@
+                                                                                      QUERY PLAN                                                                                      
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=5471297.80..5471766.55 rows=187500 width=44) (actual time=1006755.838..1006757.567 rows=27840 loops=1)
+   Sort Key: (count(DISTINCT partsupp.ps_suppkey)) DESC, part.p_brand, part.p_type, part.p_size
+   Sort Method: quicksort  Memory: 2968kB
+   ->  GroupAggregate  (cost=5374284.25..5449108.05 rows=187500 width=44) (actual time=996176.530..1006670.682 rows=27840 loops=1)
+         Group Key: part.p_brand, part.p_type, part.p_size
+         ->  Sort  (cost=5374284.25..5388874.01 rows=5835904 width=44) (actual time=996176.003..1001985.680 rows=11875574 loops=1)
+               Sort Key: part.p_brand, part.p_type, part.p_size
+               Sort Method: external merge  Disk: 673368kB
+               ->  Hash Join  (cost=1018117.93..4359379.05 rows=5835904 width=44) (actual time=11181.640..920524.443 rows=11875574 loops=1)
+                     Hash Cond: (partsupp.ps_partkey = part.p_partkey)
+                     ->  Seq Scan on partsupp  (cost=29153.58..2852046.78 rows=39995008 width=16) (actual time=523.941..516651.490 rows=79961680 loops=1)
+                           Filter: (NOT (hashed SubPlan 1))
+                           Rows Removed by Filter: 38320
+                           SubPlan 1
+                             ->  Gather  (cost=1000.00..29153.33 rows=100 width=4) (actual time=0.690..404.006 rows=479 loops=1)
+                                   Workers Planned: 2
+                                   Workers Launched: 2
+                                   ->  Parallel Seq Scan on supplier  (cost=0.00..28143.33 rows=42 width=4) (actual time=0.260..138.456 rows=160 loops=3)
+                                         Filter: ((s_comment)::text ~~ '%Customer%Complaints%'::text)
+                                         Rows Removed by Filter: 333174
+                     ->  Hash  (cost=929677.00..929677.00 rows=2918748 width=40) (actual time=10645.539..10645.539 rows=2970352 loops=1)
+                           Buckets: 65536  Batches: 64  Memory Usage: 3878kB
+                           ->  Seq Scan on part  (cost=0.00..929677.00 rows=2918748 width=40) (actual time=0.027..8942.038 rows=2970352 loops=1)
+                                 Filter: ((p_brand <> 'Brand#13'::bpchar) AND ((p_type)::text !~~ 'LARGE POLISHED%'::text) AND (p_size = ANY ('{7,13,21,28,33,49,50,1}'::integer[])))
+                                 Rows Removed by Filter: 17029648
+ Planning Time: 1396.293 ms
+ Execution Time: 1006883.863 ms
+(27 rows)
+

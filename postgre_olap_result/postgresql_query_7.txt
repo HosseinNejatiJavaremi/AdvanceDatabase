@@ -1,0 +1,52 @@
+                                                                                          QUERY PLAN                                                                                           
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Finalize GroupAggregate  (cost=22046013.42..22053343.76 rows=10048 width=92) (actual time=1421650.860..1421812.852 rows=4 loops=1)
+   Group Key: n1.n_name, n2.n_name, (date_part('year'::text, (lineitem.l_shipdate)::timestamp without time zone))
+   ->  Gather Merge  (cost=22046013.42..22052916.72 rows=20096 width=92) (actual time=1421570.641..1422305.530 rows=12 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         ->  Partial GroupAggregate  (cost=22045013.40..22049597.12 rows=10048 width=92) (actual time=1421557.015..1421749.179 rows=4 loops=3)
+               Group Key: n1.n_name, n2.n_name, (date_part('year'::text, (lineitem.l_shipdate)::timestamp without time zone))
+               ->  Sort  (cost=22045013.40..22045643.10 rows=251879 width=72) (actual time=1421491.298..1421587.067 rows=193929 loops=3)
+                     Sort Key: n1.n_name, n2.n_name, (date_part('year'::text, (lineitem.l_shipdate)::timestamp without time zone))
+                     Sort Method: external merge  Disk: 16704kB
+                     Worker 0:  Sort Method: external merge  Disk: 17024kB
+                     Worker 1:  Sort Method: external merge  Disk: 16200kB
+                     ->  Parallel Hash Join  (cost=4999474.87..22012084.87 rows=251879 width=72) (actual time=1333473.062..1421295.763 rows=193929 loops=3)
+                           Hash Cond: (lineitem.l_orderkey = orders.o_orderkey)
+                           Join Filter: (((n1.n_name = 'IRAN'::bpchar) AND (n2.n_name = 'UNITED STATES'::bpchar)) OR ((n1.n_name = 'UNITED STATES'::bpchar) AND (n2.n_name = 'IRAN'::bpchar)))
+                           Rows Removed by Join Filter: 194142
+                           ->  Parallel Hash Join  (cost=28798.90..16830762.49 rows=6052461 width=50) (actual time=1040.821..756289.316 rows=4853736 loops=3)
+                                 Hash Cond: (lineitem.l_suppkey = supplier.s_suppkey)
+                                 ->  Parallel Seq Scan on lineitem  (cost=0.00..16492000.60 rows=75931907 width=32) (actual time=0.193..734591.658 rows=60767063 loops=3)
+                                       Filter: ((l_shipdate >= '1995-01-01'::date) AND (l_shipdate <= '1996-12-31'::date))
+                                       Rows Removed by Filter: 139245571
+                                 ->  Parallel Hash  (cost=28382.24..28382.24 rows=33333 width=30) (actual time=1032.211..1032.212 rows=26636 loops=3)
+                                       Buckets: 131072  Batches: 1  Memory Usage: 6080kB
+                                       ->  Hash Join  (cost=1.40..28382.24 rows=33333 width=30) (actual time=7.041..1017.765 rows=26636 loops=3)
+                                             Hash Cond: (supplier.s_nationkey = n1.n_nationkey)
+                                             ->  Parallel Seq Scan on supplier  (cost=0.00..27101.67 rows=416667 width=12) (actual time=6.957..965.671 rows=333333 loops=3)
+                                             ->  Hash  (cost=1.38..1.38 rows=2 width=30) (actual time=0.054..0.057 rows=2 loops=3)
+                                                   Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                                   ->  Seq Scan on nation n1  (cost=0.00..1.38 rows=2 width=30) (actual time=0.034..0.046 rows=2 loops=3)
+                                                         Filter: ((n_name = 'IRAN'::bpchar) OR (n_name = 'UNITED STATES'::bpchar))
+                                                         Rows Removed by Filter: 23
+                           ->  Parallel Hash  (cost=4873999.65..4873999.65 rows=4999785 width=30) (actual time=567988.974..567988.974 rows=3998029 loops=3)
+                                 Buckets: 65536  Batches: 256  Memory Usage: 3520kB
+                                 ->  Parallel Hash Join  (cost=475758.26..4873999.65 rows=4999785 width=30) (actual time=540252.480..566221.696 rows=3998029 loops=3)
+                                       Hash Cond: (orders.o_custkey = customer.c_custkey)
+                                       ->  Parallel Seq Scan on orders  (cost=0.00..3529301.07 rows=62497307 width=12) (actual time=235.285..400570.829 rows=50000000 loops=3)
+                                       ->  Parallel Hash  (cost=466093.08..466093.08 rows=499854 width=30) (actual time=120113.326..120113.326 rows=399974 loops=3)
+                                             Buckets: 65536  Batches: 32  Memory Usage: 2912kB
+                                             ->  Hash Join  (cost=1.40..466093.08 rows=499854 width=30) (actual time=32.615..118075.885 rows=399974 loops=3)
+                                                   Hash Cond: (customer.c_nationkey = n2.n_nationkey)
+                                                   ->  Parallel Seq Scan on customer  (cost=0.00..446909.78 rows=6248178 width=12) (actual time=32.545..117276.850 rows=5000000 loops=3)
+                                                   ->  Hash  (cost=1.38..1.38 rows=2 width=30) (actual time=0.040..0.040 rows=2 loops=3)
+                                                         Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                                         ->  Seq Scan on nation n2  (cost=0.00..1.38 rows=2 width=30) (actual time=0.025..0.030 rows=2 loops=3)
+                                                               Filter: ((n_name = 'UNITED STATES'::bpchar) OR (n_name = 'IRAN'::bpchar))
+                                                               Rows Removed by Filter: 23
+ Planning Time: 37.947 ms
+ Execution Time: 1422308.894 ms
+(48 rows)
+

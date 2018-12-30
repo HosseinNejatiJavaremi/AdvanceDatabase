@@ -1,0 +1,174 @@
+version: "3.5"
+
+
+services:
+
+  # Apache Spark
+
+  spark-master:
+    image: gettyimages/spark:2.3.0-hadoop-2.8
+    command: bin/spark-class org.apache.spark.deploy.master.Master -h master
+    container_name: spark-master
+    hostname: master
+    environment:
+      MASTER: spark://master:7077
+      SPARK_PUBLIC_DNS: localhost
+      CORE_CONF_fs_defaultFS: hdfs://hdfs:8020
+    expose:
+      - 7001
+      - 7002
+      - 7003
+      - 7004
+      - 7005
+      - 7077
+      - 6066
+      - 4040
+      - 8080
+    links:
+      - namenode
+    networks:
+      - flink-spark
+    volumes:
+      - /mnt/storage/data/Avro/:/Avro
+      - /mnt/storage/data/Csv2Parquet/:/Csv2Parquet
+      - /mnt/storage/data/Orc:/Orc
+      - /data:/data:ro
+      - ./conf/master:/conf
+
+  spark-worker:
+    image: gettyimages/spark:2.3.0-hadoop-2.8
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
+    container_name: spark-worker
+    hostname: worker
+    environment:
+      SPARK_MASTER: spark://master:7077
+      SPARK_WORKER_CORES: 2
+      SPARK_WORKER_MEMORY: 1g
+      SPARK_WORKER_PORT: 8881
+      SPARK_WORKER_WEBUI_PORT: 8081
+      CORE_CONF_fs_defaultFS: hdfs://hdfs:8020
+    links:
+      - spark-master:master
+      - namenode
+    expose:
+      - 7012
+      - 7013
+      - 7014
+      - 7015
+      - 8881
+      - 8081
+    networks:
+      - flink-spark
+    volumes:
+      - ./conf/master:/conf
+      - /data:/data:ro
+  # Apache Flink
+
+  flink-jobmanager:
+    image: flink:1.6.2-hadoop28
+    container_name: flink-jobmanager
+    expose:
+      - "6123"
+      - "8081"
+    command: jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    links:
+      - namenode
+    networks:
+      - flink-spark
+    volumes:
+      - /data:/data
+
+  flink-taskmanager:
+    image: flink:1.6.2-hadoop28
+    container_name: flink-taskmanager
+    expose:
+      - "6121"
+      - "6122"
+    depends_on:
+      - flink-jobmanager
+    command: taskmanager
+    links:
+      - flink-jobmanager:jobmanager
+      - namenode
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    networks:
+      - flink-spark
+
+  # HDFS
+
+  namenode:
+    image: bde2020/hadoop-namenode:1.2.1-hadoop2.8-java8
+    container_name: namenode
+    volumes:
+      - hadoop_namenode:/hadoop/dfs/name
+    environment:
+      - CLUSTER_NAME=db
+    env_file:
+      - ./hadoop.env
+    networks:
+      - flink-spark
+
+  resourcemanager:
+    image: bde2020/hadoop-resourcemanager:1.2.1-hadoop2.8-java8
+    container_name: resourcemanager
+    depends_on:
+      - namenode
+      - datanode
+    env_file:
+      - ./hadoop.env
+    networks:
+      - flink-spark
+
+  historyserver:
+    image: bde2020/hadoop-historyserver:1.2.1-hadoop2.8-java8
+    container_name: historyserver
+    depends_on:
+      - namenode
+      - datanode
+    volumes:
+      - hadoop_historyserver:/hadoop/yarn/timeline
+    env_file:
+      - ./hadoop.env
+    networks:
+      - flink-spark
+
+  nodemanager:
+    image: bde2020/hadoop-nodemanager:1.2.1-hadoop2.8-java8
+    container_name: nodemanager
+    depends_on:
+      - namenode
+      - datanode
+    env_file:
+      - ./hadoop.env
+    networks:
+      - flink-spark
+
+  datanode:
+    image: bde2020/hadoop-datanode:1.2.1-hadoop2.8-java8
+    container_name: datanode
+    depends_on:
+      - namenode
+    volumes:
+      - /data:/data
+      - hadoop_datanode:/hadoop/dfs/data
+    env_file:
+      - ./hadoop.env
+    networks:
+      - flink-spark
+
+volumes:
+  hadoop_namenode:
+    name: hdfs-nodename
+  hadoop_datanode:
+    name: hdfs-datanode
+  hadoop_historyserver:
+    name: hdfs-historyserver
+
+
+networks:
+  flink-spark:
+    driver: bridge
+
