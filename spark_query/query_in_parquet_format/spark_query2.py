@@ -6,6 +6,7 @@ sc = SparkContext(appName="query2")
 sqlContext = SQLContext(sc)
 
 import time
+
 start_time = time.time() * 1000
 
 region = spark.read.parquet("hdfs://namenode:8020/hossein-parquet-data/region.parquet")
@@ -28,14 +29,11 @@ min_cost = COPPER.groupBy(COPPER.PS_PARTKEY) \
     .agg(F.min(COPPER.PS_SUPPLYCOST).alias("min"))
 
 query2 = COPPER.join(min_cost, COPPER.PS_PARTKEY == min_cost.PS_PARTKEY) \
-        .filter(COPPER.PS_SUPPLYCOST == min_cost.min) \
-        .select("S_ACCTBAL", "S_NAME", "N_NAME", COPPER.P_PARTKEY, "P_MFGR",
-                "S_ADDRESS", "S_PHONE", "S_COMMENT") \
-        .sort(COPPER.S_ACCTBAL.desc(), "N_NAME", "S_NAME", COPPER.P_PARTKEY) \
-        .limit(100)
+    .filter(COPPER.PS_SUPPLYCOST == min_cost.min) \
+    .select("S_ACCTBAL", "S_NAME", "N_NAME", COPPER.P_PARTKEY, "P_MFGR",
+            "S_ADDRESS", "S_PHONE", "S_COMMENT") \
+    .sort(COPPER.S_ACCTBAL.desc(), "N_NAME", "S_NAME", COPPER.P_PARTKEY) \
+    .limit(100)
 query2.count()
 end_time = time.time() * 1000
 print("total time = {}".format(end_time - start_time))
-
-
-

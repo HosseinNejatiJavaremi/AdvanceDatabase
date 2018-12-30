@@ -10,7 +10,6 @@ orders = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/orde
 
 from pyspark.sql import functions as F
 
-
 query13 = customer.join(orders, (customer.C_CUSTKEY == orders.O_CUSTKEY)
                         & (orders.O_COMMENT.like('%unusual%accounts%')), "left_outer") \
     .groupBy(orders.O_CUSTKEY) \

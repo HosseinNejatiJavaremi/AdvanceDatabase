@@ -24,16 +24,16 @@ supplier_nation = nation_filter.join(supplier, nation_filter.N_NATIONKEY == supp
             lineitem_filter.L_EXTENDEDPRICE, lineitem_filter.L_DISCOUNT, lineitem_filter.L_SHIPDATE)
 
 customer_nation = nation_filter.join(customer, nation_filter.N_NATIONKEY == customer.C_NATIONKEY) \
-        .join(orders, customer.C_CUSTKEY == orders.O_CUSTKEY) \
-        .select(nation_filter.N_NAME.alias("cust_nation"), orders.O_ORDERKEY)
+    .join(orders, customer.C_CUSTKEY == orders.O_CUSTKEY) \
+    .select(nation_filter.N_NAME.alias("cust_nation"), orders.O_ORDERKEY)
 
 query7 = customer_nation.join(supplier_nation, orders.O_ORDERKEY == supplier_nation.L_ORDERKEY) \
-        .filter(((supplier_nation.supp_nation == "IRAN") & (customer_nation.cust_nation == "UNITED STATES"))
-                | ((supplier_nation.supp_nation == "UNITED STATES") & (customer_nation.cust_nation == "IRAN"))) \
-        .select(supplier_nation.supp_nation, customer_nation.cust_nation,
-                getYear(lineitem_filter.L_SHIPDATE).alias("l_year"),
-                fun1(lineitem_filter.L_EXTENDEDPRICE, lineitem_filter.L_DISCOUNT).alias("volume"))
+    .filter(((supplier_nation.supp_nation == "IRAN") & (customer_nation.cust_nation == "UNITED STATES"))
+            | ((supplier_nation.supp_nation == "UNITED STATES") & (customer_nation.cust_nation == "IRAN"))) \
+    .select(supplier_nation.supp_nation, customer_nation.cust_nation,
+            getYear(lineitem_filter.L_SHIPDATE).alias("l_year"),
+            fun1(lineitem_filter.L_EXTENDEDPRICE, lineitem_filter.L_DISCOUNT).alias("volume"))
 
 query7 = query7.groupBy(supplier_nation.supp_nation, query7.cust_nation, query7.l_year) \
-        .agg(F.sum("volume").alias("revenue")) \
-        .sort(supplier_nation.supp_nation, query7.cust_nation, query7.l_year)
+    .agg(F.sum("volume").alias("revenue")) \
+    .sort(supplier_nation.supp_nation, query7.cust_nation, query7.l_year)

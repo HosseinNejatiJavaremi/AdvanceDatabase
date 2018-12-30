@@ -10,7 +10,7 @@ part = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/part.p
 
 from pyspark.sql import functions as F
 
-fun1 = lambda x, y : x * (1 - y)
+fun1 = lambda x, y: x * (1 - y)
 
 query14 = part.join(lineitem, (lineitem.L_PARTKEY == part.P_PARTKEY) &
                     (lineitem.L_SHIPDATE >= "1997-01-01") & (lineitem.L_SHIPDATE < "1997-02-01")) \
