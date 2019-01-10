@@ -18,3 +18,5 @@ query4 = lineitem_filter.join(orders_filter, lineitem.L_ORDERKEY == orders_filte
     .groupBy(orders_filter.O_ORDERPRIORITY) \
     .agg(F.count(orders_filter.O_ORDERPRIORITY)) \
     .sort(orders_filter.O_ORDERPRIORITY)
+
+query4.show()

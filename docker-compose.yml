@@ -19,10 +19,12 @@ services:
       - 7003
       - 7004
       - 7005
-      - 7077
       - 6066
-      - 4040
-      - 8080
+
+    ports:
+      - 127.0.0.1:7077:7077
+      - 127.0.0.1:4040:4040
+      - 127.0.0.1:8080:8080
     links:
       - hossein-namenode:namenode
     networks:
@@ -39,8 +41,8 @@ services:
     hostname: worker
     environment:
       SPARK_MASTER: spark://master:7077
-      SPARK_WORKER_CORES: 2
-      SPARK_WORKER_MEMORY: 1g
+      SPARK_WORKER_CORES: 14
+      SPARK_WORKER_MEMORY: 30g
       SPARK_WORKER_PORT: 8881
       SPARK_WORKER_WEBUI_PORT: 8081
       CORE_CONF_fs_defaultFS: hdfs://namenode:8020
@@ -53,7 +55,8 @@ services:
       - 7014
       - 7015
       - 8881
-      - 8081
+    ports:
+      - 127.0.0.1:8081:8081
     networks:
       - hossein-flink-spark
     volumes:
@@ -142,8 +145,8 @@ services:
       - ./hadoop.env
     networks:
       - hossein-flink-spark
-        
-        
+
+
   hossein-nodemanager:
     image: bde2020/hadoop-nodemanager:1.2.1-hadoop2.8-java8
     container_name: hossein-nodemanager
@@ -169,7 +172,7 @@ services:
       - ./hadoop.env
     networks:
       - hossein-flink-spark
-  
+
 networks:
   hossein-flink-spark:
     driver: bridge

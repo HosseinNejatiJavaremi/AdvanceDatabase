@@ -30,3 +30,5 @@ query5 = region.filter(region.R_NAME == "ASIA") \
     .groupBy(nation.N_NAME) \
     .agg(F.sum("value").alias("revenue"))
 query5 = query5.sort(query5.revenue.desc())
+
+query5.show()

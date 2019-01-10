@@ -6,8 +6,6 @@ sc = SparkContext(appName="query1")
 sqlContext = SQLContext(sc)
 
 lineitem = spark.read.parquet("hdfs://namenode:8020/hossein-parquet-data/lineitem.parquet")
-# lineitem = sqlContext.read.orc("hdfs://namenode:8020/hossein-orc-data/lineitem.orc")
-# lineitem = spark.read.format("com.databricks.spark.avro").load("hdfs://namenode:8020/hossein-avro-data/lineitem.avro")
 
 from datetime import datetime
 from datetime import timedelta

@@ -15,7 +15,8 @@ lineitem = spark.read.format('parquet').load("hdfs://namenode:8020/hossein-parqu
 lineitem.write.format("com.databricks.spark.avro").mode('overwrite') \
     .save("hdfs://namenode:8020/hossein-avro-data/lineitem.avro")
 
-lineitem_avro = spark.read.format("com.databricks.spark.avro").load("hdfs://namenode:8020/hossein-avro-data/lineitem.avro")
+lineitem_avro = spark.read.format("com.databricks.spark.avro").load(
+    "hdfs://namenode:8020/hossein-avro-data/lineitem.avro")
 
 lineitem_avro.count()
 print(lineitem_avro.schema)

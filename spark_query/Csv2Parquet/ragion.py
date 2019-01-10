@@ -1,16 +1,15 @@
 from pyspark import SparkContext
 from pyspark.sql import SQLContext
 
-
 sc = SparkContext(appName="CSV2Parquet")
 sqlContext = SQLContext(sc)
 
 from pyspark.sql.types import *
+
 fields = [StructField("R_REGIONKEY", IntegerType(), False),
           StructField("R_NAME", StringType(), True),
           StructField("R_COMMENT", StringType(), True)]
 schema = StructType(fields)
-
 
 rdd = sc.textFile("/data/OLAP_Benchmark_data/region.tbl")
 

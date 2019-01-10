@@ -5,6 +5,7 @@ sc = SparkContext(appName="CSV2Parquet")
 sqlContext = SQLContext(sc)
 
 from pyspark.sql.types import *
+
 fields = [StructField("C_CUSTKEY", IntegerType(), False),
           StructField("C_NAME", StringType(), True),
           StructField("C_ADDRESS", StringType(), True),

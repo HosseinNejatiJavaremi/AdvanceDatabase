@@ -4,7 +4,6 @@ from pyspark.sql import SQLContext
 sc = SparkContext(appName="Parquet2Orc")
 sqlContext = SQLContext(sc)
 
-
 sqlContext.setConf('spark.sql.orc.impl', 'native')
 region = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/region.parquet")
 

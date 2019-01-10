@@ -1,5 +1,4 @@
 from pyspark import SparkContext
-from pyspark.python.pyspark.shell import spark
 from pyspark.sql import SQLContext
 
 sc = SparkContext(appName="query22")

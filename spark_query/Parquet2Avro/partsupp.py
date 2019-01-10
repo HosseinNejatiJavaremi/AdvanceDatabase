@@ -15,6 +15,7 @@ partsupp = spark.read.format('parquet').load("hdfs://namenode:8020/hossein-parqu
 partsupp.write.format("com.databricks.spark.avro").mode('overwrite') \
     .save("hdfs://namenode:8020/hossein-avro-data/partsupp.avro")
 
-partsupp_avro = spark.read.format("com.databricks.spark.avro").load("hdfs://namenode:8020/hossein-avro-data/partsupp.avro")
+partsupp_avro = spark.read.format("com.databricks.spark.avro") \
+    .load("hdfs://namenode:8020/hossein-avro-data/partsupp.avro")
 
 print(partsupp_avro.schema)

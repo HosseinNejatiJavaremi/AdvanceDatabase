@@ -15,6 +15,7 @@ supplier = spark.read.format('parquet').load("hdfs://namenode:8020/hossein-parqu
 supplier.write.format("com.databricks.spark.avro").mode('overwrite') \
     .save("hdfs://namenode:8020/hossein-avro-data/supplier.avro")
 
-supplier_avro = spark.read.format("com.databricks.spark.avro").load("hdfs://namenode:8020/hossein-avro-data/supplier.avro")
+supplier_avro = spark.read.format("com.databricks.spark.avro") \
+    .load("hdfs://namenode:8020/hossein-avro-data/supplier.avro")
 
 print(supplier_avro.schema)

@@ -1,5 +1,4 @@
 from pyspark import SparkContext
-from pyspark.python.pyspark.shell import spark
 from pyspark.sql import SQLContext
 
 sc = SparkContext(appName="query19")
@@ -13,7 +12,4 @@ orders = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/orde
 part = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/part.parquet")
 partsupp = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/partsupp.parquet")
 region = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/region.parquet")
-
-from pyspark.sql import functions as F
-
 
