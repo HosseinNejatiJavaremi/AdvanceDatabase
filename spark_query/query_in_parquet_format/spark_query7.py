@@ -36,3 +36,6 @@ query7 = customer_nation.join(supplier_nation, orders.O_ORDERKEY == supplier_nat
 query7 = query7.groupBy(supplier_nation.supp_nation, query7.cust_nation, query7.l_year) \
     .agg(F.sum("volume").alias("revenue")) \
     .sort(supplier_nation.supp_nation, query7.cust_nation, query7.l_year)
+
+query7.show()
+

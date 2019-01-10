@@ -16,12 +16,6 @@ from pyspark.sql import functions as F
 
 getYear = lambda x: x[0: 4]
 fun1 = lambda x, y: x * (1 - y)
-# isIran = lambda x, y: y if (x == 'IRAN') else 0
-# def isIran(x, y):
-#     if x == 'IRAN':
-#         return y
-#     else:
-#         return 0
 
 region_filter = region.filter(region.R_NAME == "ASIA")
 order_filter = orders.filter((orders.O_ORDERDATE <= "1996-12-31") & (orders.O_ORDERDATE >= "1995-01-01"))
@@ -47,3 +41,5 @@ query8 = nation.join(region_filter, nation.N_REGIONKEY == region_filter.R_REGION
 query8 = query8.groupBy(query8.o_year) \
     .agg(F.sum(query8.case_volume) / F.sum(query8.volume)) \
     .sort(query8.o_year)
+
+query8.show()
