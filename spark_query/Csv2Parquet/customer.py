@@ -36,3 +36,4 @@ customer_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/customer.pa
 
 customer = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/customer.parquet")
 print(customer.dtypes)
+customer.first()
