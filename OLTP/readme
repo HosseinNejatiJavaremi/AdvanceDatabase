@@ -1,0 +1,24 @@
+first: we must install java 8 in docker container
+after installing java 8, we clone oltp benchmark
+
+
+apt update
+apt install software-properties-common -y
+add-apt-repository ppa:webupd8team/java -y
+apt update
+apt-get install oracle-java8-installer -y
+apt update
+apt-get install oracle-java8-installer oracle-java8-set-default openjdk-8-jdk -y
+apt-get install openjfx -y
+apt-get install maven -y
+apt-get install openmpi openmpi-bin openmpi-doc libopenmpi-dev -y
+apt-get install zlib zlib-devel bzip zlib1g-dev bzip2 libbz2-dev python-qrtools -y
+apt-get install git -y
+
+
+git clone https://github.com/oltpbenchmark/oltpbench.git
+cd oltpbench/;ant;
+
+./oltpbenchmark -b tpcc -c config/sample_tpcc_config.xml --create=true --load=true
+
+./oltpbenchmark -b tpcc -c config/sample_tpcc_config.xml --execute=true -s 5 -o outputfile

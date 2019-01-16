@@ -31,7 +31,8 @@ customer_df = rdd.map(lambda x: x.split("|")) \
 
 print(customer_df.dtypes)
 
-customer_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/customer.parquet")
+customer_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/customer.parquet",
+                          mode='overwrite')
 
 customer = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/customer.parquet")
 print(customer.dtypes)

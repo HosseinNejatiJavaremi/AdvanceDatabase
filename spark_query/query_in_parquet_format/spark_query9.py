@@ -32,3 +32,5 @@ query9 = lineitem_part.join(nation_supplier, lineitem_part.L_SUPPKEY == nation_s
 query9 = query9.groupBy(query9.N_NAME, query9.o_year) \
     .agg(F.sum(query9.amount)) \
     .sort(query9.N_NAME, query9.o_year.desc())
+
+query9.show()
