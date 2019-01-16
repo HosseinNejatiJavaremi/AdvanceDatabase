@@ -47,7 +47,9 @@ lineitem_df = rdd.map(lambda x: x.split("|")) \
 
 print(lineitem_df.dtypes)
 
-lineitem_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/lineitem.parquet")
+lineitem_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/lineitem.parquet",
+                          mode='overwrite')
 
 lineitem = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/lineitem.parquet")
 print(lineitem.dtypes)
+lineitem.first()

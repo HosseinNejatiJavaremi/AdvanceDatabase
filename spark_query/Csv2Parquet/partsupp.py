@@ -25,7 +25,8 @@ partsupp_df = rdd.map(lambda x: x.split("|")) \
 
 print(partsupp_df.dtypes)
 
-partsupp_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/partsupp.parquet")
+partsupp_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/partsupp.parquet",
+                          mode='overwrite')
 
 partsupp = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/partsupp.parquet")
 print(partsupp.dtypes)

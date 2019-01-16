@@ -29,7 +29,9 @@ supplier_df = rdd.map(lambda x: x.split("|")) \
 
 print(supplier_df.dtypes)
 
-supplier_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/supplier.parquet")
+supplier_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/supplier.parquet",
+                          mode='overwrite')
 
 supplier = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/supplier.parquet")
 print(supplier.dtypes)
+supplier.first()

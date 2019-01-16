@@ -19,6 +19,8 @@ region_df = rdd.map(lambda x: x.split("|")) \
                     'R_COMMENT': x[2]}).toDF(schema)
 
 print(region_df.dtypes)
-region_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/region.parquet")
+region_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/region.parquet",
+                          mode='overwrite')
 
 region = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/region.parquet")
+region.first()

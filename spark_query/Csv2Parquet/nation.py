@@ -21,7 +21,9 @@ nation_df = rdd.map(lambda x: x.split("|")) \
                     'N_COMMENT': x[3]}).toDF(schema)
 
 print(nation_df.dtypes)
-nation_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/nation.parquet")
+nation_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/nation.parquet",
+                          mode='overwrite')
 
 nation = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/nation.parquet")
 print(nation.dtypes)
+nation.first()

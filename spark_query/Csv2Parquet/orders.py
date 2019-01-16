@@ -33,7 +33,9 @@ orders_df = rdd.map(lambda x: x.split("|")) \
 
 print(orders_df.dtypes)
 
-orders_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/orders.parquet")
+orders_df.write.parquet("hdfs://namenode:8020/hossein-parquet-data/orders.parquet",
+                          mode='overwrite')
 
 orders = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/orders.parquet")
 print(orders.dtypes)
+orders.first()
