@@ -26,3 +26,4 @@ query18 = query18.join(orders, orders.O_ORDERKEY == query18.key) \
     .agg(F.sum(lineitem.L_QUANTITY)) \
     .sort(orders.O_TOTALPRICE.desc(), orders.O_ORDERDATE) \
     .limit(100)
+query18.show()

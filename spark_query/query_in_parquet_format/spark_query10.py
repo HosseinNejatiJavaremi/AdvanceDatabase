@@ -27,3 +27,4 @@ query10 = orders.filter((orders.O_ORDERDATE < "1995-04-01") & (orders.O_ORDERDAT
     .agg(F.sum("volume").alias("revenue"))
 query10 = query10.sort(query10.revenue.desc()) \
     .limit(20)
+query10.show()

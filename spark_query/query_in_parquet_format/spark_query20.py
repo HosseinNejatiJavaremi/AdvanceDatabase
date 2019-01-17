@@ -33,3 +33,5 @@ query20 = part.filter(part.P_NAME.like("blue%")) \
     .join(iran_supplier, partsupp.PS_SUPPKEY == iran_supplier.S_SUPPKEY) \
     .select(iran_supplier.S_NAME, iran_supplier.S_ADDRESS) \
     .sort(iran_supplier.S_NAME)
+
+query20.show()

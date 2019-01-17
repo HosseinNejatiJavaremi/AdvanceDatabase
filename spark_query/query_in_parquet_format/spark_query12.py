@@ -22,3 +22,4 @@ query12 = lineitem.filter(((lineitem.L_SHIPMODE == "AIR") | (lineitem.L_SHIPMODE
          F.sum(F.when((orders.O_ORDERPRIORITY != "1-URGENT") &
                       (orders.O_ORDERPRIORITY != "2-HIGH"), 1).otherwise(0)).alias("sum_loworderpriority")) \
     .sort(lineitem.L_SHIPMODE)
+query12.show()

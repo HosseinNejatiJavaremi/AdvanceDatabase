@@ -17,3 +17,4 @@ query14 = part.join(lineitem, (lineitem.L_PARTKEY == part.P_PARTKEY) &
 
 query14 = query14.agg(F.sum(F.when(part.P_PARTKEY.startswith("PROMO"),
                                    query14.value).otherwise(0)) * 100 / F.sum(query14.value))
+query14.show()

@@ -11,3 +11,4 @@ lineitem.write.save("hdfs://namenode:8020/hossein-orc-data/lineitem.orc", mode='
 
 lineitem_orc = sqlContext.read.orc("hdfs://namenode:8020/hossein-orc-data/lineitem.orc")
 print(lineitem_orc.schema)
+lineitem_orc.first()

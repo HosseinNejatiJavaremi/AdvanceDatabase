@@ -3,6 +3,7 @@ from pyspark.sql import SQLContext
 
 sc = SparkContext(appName="CSV2Parquet")
 sqlContext = SQLContext(sc)
+sqlContext.setConf('spark.sql.orc.impl', 'native')
 
 customer = sqlContext.read.orc("hdfs://namenode:8020/hossein-orc-data/customer.orc")
 lineitem = sqlContext.read.orc("hdfs://namenode:8020/hossein-orc-data/lineitem.orc")

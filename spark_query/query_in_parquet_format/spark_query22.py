@@ -27,3 +27,4 @@ query22 = orders.groupBy(orders.O_CUSTKEY) \
     .agg(F.count(customer_filter.C_ACCTBAL).alias("numcust"),
          F.sum(customer_filter.C_ACCTBAL).alias("totacctbal")) \
     .sort(customer_filter.cntrycode)
+query22.show()

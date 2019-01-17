@@ -23,3 +23,4 @@ query17 = query17.select(query17.P_PARTKEY.alias("key"), query17.avg_quantity)
 query17 = query17.join(part_lineitem_filter, query17.key == part_lineitem_filter.P_PARTKEY) \
     .filter(part_lineitem_filter.L_QUANTITY < query17.avg_quantity) \
     .agg(F.sum(part_lineitem_filter.L_EXTENDEDPRICE) / 7.0)
+query17.show()

@@ -16,5 +16,5 @@ region.write.format("com.databricks.spark.avro").mode('overwrite') \
     .save("hdfs://namenode:8020/hossein-avro-data/region.avro")
 
 region_avro = spark.read.format("com.databricks.spark.avro").load("hdfs://namenode:8020/hossein-avro-data/region.avro")
-
 print(region_avro.schema)
+region_avro.first()

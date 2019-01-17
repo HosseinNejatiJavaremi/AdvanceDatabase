@@ -11,3 +11,4 @@ region.write.save("hdfs://namenode:8020/hossein-orc-data/region.orc", mode='over
 
 region_orc = sqlContext.read.orc("hdfs://namenode:8020/hossein-orc-data/region.orc")
 print(region_orc.schema)
+region_orc.first()

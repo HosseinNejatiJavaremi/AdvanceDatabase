@@ -11,7 +11,7 @@ partsupp = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/pa
 from pyspark.sql import functions as F
 
 fun1 = lambda x, y: x * y
-fun2 = lambda x: x * 0.00001
+fun2 = lambda x: x * 0.000001
 
 iran = nation.filter(nation.N_NAME == "IRAN") \
     .join(supplier, nation.N_NATIONKEY == supplier.S_NATIONKEY) \
@@ -25,3 +25,4 @@ query11 = iran.groupBy(partsupp.PS_PARTKEY).agg(F.sum("value").alias("group_valu
 
 query11 = query11.join(total, query11.group_value > fun2(total.total_value)) \
     .sort(query11.group_value.desc())
+query11.show()

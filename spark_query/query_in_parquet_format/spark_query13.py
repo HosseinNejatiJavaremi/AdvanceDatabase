@@ -18,3 +18,4 @@ query13 = query13.groupBy("c_count") \
     .agg(F.count(orders.O_CUSTKEY).alias("custdist"))
 
 query13 = query13.sort(query13.custdist.desc(), query13.c_count.desc())
+query13.show()

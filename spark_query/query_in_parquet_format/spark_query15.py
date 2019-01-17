@@ -21,3 +21,4 @@ query15 = query15.join(revenue, query15.max_total == revenue.total) \
     .join(supplier, lineitem.L_SUPPKEY == supplier.S_SUPPKEY) \
     .select(supplier.S_SUPPKEY, supplier.S_NAME, supplier.S_ADDRESS, supplier.S_PHONE, revenue.total) \
     .sort(supplier.S_SUPPKEY)
+query15.show()

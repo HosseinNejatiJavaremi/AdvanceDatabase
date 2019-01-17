@@ -53,3 +53,4 @@ query21 = query21.select(query21.S_NAME, query21.L_ORDERKEY, query21.L_SUPPKEY) 
 
 query21 = query21.sort(query21.numwait.desc(), query21.S_NAME) \
     .limit(100)
+query21.show()
