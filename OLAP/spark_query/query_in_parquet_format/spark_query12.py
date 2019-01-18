@@ -9,11 +9,11 @@ orders = sqlContext.read.parquet("hdfs://namenode:8020/hossein-parquet-data/orde
 
 from pyspark.sql import functions as F
 
-query12 = lineitem.filter(((lineitem.L_SHIPMODE == "AIR") | (lineitem.L_SHIPMODE == "RAIL") &
+query12 = lineitem.filter(((lineitem.L_SHIPMODE == "AIR") | (lineitem.L_SHIPMODE == "RAIL")) &
                            (lineitem.L_COMMITDATE < lineitem.L_RECEIPTDATE) &
                            (lineitem.L_SHIPDATE < lineitem.L_COMMITDATE) &
                            (lineitem.L_RECEIPTDATE >= "1997-01-01") &
-                           (lineitem.L_RECEIPTDATE < "1998-01-01"))) \
+                           (lineitem.L_RECEIPTDATE < "1998-01-01")) \
     .join(orders, lineitem.L_ORDERKEY == orders.O_ORDERKEY) \
     .select(lineitem.L_SHIPMODE, orders.O_ORDERPRIORITY) \
     .groupBy(lineitem.L_SHIPMODE) \
