@@ -8,7 +8,7 @@ add-apt-repository ppa:webupd8team/java -y
 apt update
 apt-get install oracle-java8-installer -y
 apt update
-apt-get install oracle-java8-installer oracle-java8-set-default openjdk-8-jdk -y
+apt-get install oracle-java8-set-default openjdk-8-jdk -y
 apt-get install openjfx -y
 apt-get install maven -y
 apt-get install openmpi openmpi-bin openmpi-doc libopenmpi-dev -y

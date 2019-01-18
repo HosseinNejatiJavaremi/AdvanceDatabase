@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<parameters>
+
+    <!-- Connection details -->
+
+
+    
+    <dbtype>postgres</dbtype>
+    <driver>org.postgresql.Driver</driver>
+    <DBUrl>jdbc:postgresql://0.0.0.0:32768/tpcc</DBUrl>
+    <DBName>tpcc</DBName>
+    <username>root</username>
+    <password>root</password>
+    <isolation>TRANSACTION_SERIALIZABLE</isolation>
+
+    <!-- Scale factor is the number of warehouses in TPCC -->
+    <scalefactor>10</scalefactor>
+
+    <!-- The workload -->
+    <terminals>10</terminals>
+    <works>
+        <work>
+          <time>600</time>
+          <rate>unlimited</rate>
+          <weights>45,43,4,4,4</weights>
+        </work>
+    </works>
+
+        <!-- TPCC specific -->
+        <transactiontypes>
+        <transactiontype>
+                <name>NewOrder</name>
+        </transactiontype>
+        <transactiontype>
+                <name>Payment</name>
+        </transactiontype>
+        <transactiontype>
+                <name>OrderStatus</name>
+        </transactiontype>
+        <transactiontype>
+                <name>Delivery</name>
+        </transactiontype>
+        <transactiontype>
+                <name>StockLevel</name>
+        </transactiontype>
+        </transactiontypes>
+</parameters>
+
