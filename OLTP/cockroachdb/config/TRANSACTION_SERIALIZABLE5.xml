@@ -7,10 +7,10 @@
     
     <dbtype>cockroachdb</dbtype>
     <driver>org.postgresql.Driver</driver>
-    <DBUrl>jdbc:postgresql://0.0.0.0:26257/tpcc</DBUrl>
+    <DBUrl>jdbc:postgresql://0.0.0.0:26257/tpcc?reWriteBatchedInserts=true</DBUrl>
     <DBName>tpcc</DBName>
     <username>root</username>
-    <password>root</password>
+    <password></password>
     <isolation>TRANSACTION_SERIALIZABLE</isolation>
 
     <!-- Scale factor is the number of warehouses in TPCC -->
