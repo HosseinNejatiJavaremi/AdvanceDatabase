@@ -5,26 +5,17 @@ from pyspark.sql import SQLContext
 sc = SparkContext(appName="query7")
 sqlContext = SQLContext(sc)
 
-customer = spark.read.format("com.databricks.spark.avro")\
+customer = spark.read.format("com.databricks.spark.avro") \
     .load("hdfs://namenode:8020/hossein-avro-data/customer.avro")
 
-lineitem = spark.read.format("com.databricks.spark.avro")\
+lineitem = spark.read.format("com.databricks.spark.avro") \
     .load("hdfs://namenode:8020/hossein-avro-data/lineitem.avro")
 
-nation = spark.read.format("com.databricks.spark.avro")\
+nation = spark.read.format("com.databricks.spark.avro") \
     .load("hdfs://namenode:8020/hossein-avro-data/nation.avro")
 
-orders = spark.read.format("com.databricks.spark.avro")\
+orders = spark.read.format("com.databricks.spark.avro") \
     .load("hdfs://namenode:8020/hossein-avro-data/orders.avro")
-
-part = spark.read.format("com.databricks.spark.avro")\
-    .load("hdfs://namenode:8020/hossein-avro-data/part.avro")
-
-partsupp = spark.read.format("com.databricks.spark.avro") \
-    .load("hdfs://namenode:8020/hossein-avro-data/partsupp.avro")
-
-region = spark.read.format("com.databricks.spark.avro")\
-    .load("hdfs://namenode:8020/hossein-avro-data/region.avro")
 
 supplier = spark.read.format("com.databricks.spark.avro") \
     .load("hdfs://namenode:8020/hossein-avro-data/supplier.avro")
@@ -57,4 +48,3 @@ query7 = query7.groupBy(supplier_nation.supp_nation, query7.cust_nation, query7.
     .sort(supplier_nation.supp_nation, query7.cust_nation, query7.l_year)
 
 query7.show()
-

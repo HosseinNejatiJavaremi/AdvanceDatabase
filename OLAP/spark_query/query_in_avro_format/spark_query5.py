@@ -20,8 +20,6 @@ orders = spark.read.format("com.databricks.spark.avro")\
 part = spark.read.format("com.databricks.spark.avro")\
     .load("hdfs://namenode:8020/hossein-avro-data/part.avro")
 
-partsupp = spark.read.format("com.databricks.spark.avro") \
-    .load("hdfs://namenode:8020/hossein-avro-data/partsupp.avro")
 
 region = spark.read.format("com.databricks.spark.avro")\
     .load("hdfs://namenode:8020/hossein-avro-data/region.avro")
