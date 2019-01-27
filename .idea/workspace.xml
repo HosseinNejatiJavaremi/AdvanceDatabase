@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d579b4b-f32e-424f-a21e-1bc770d8bdcc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/OLAP/data_size" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query3.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query4.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query5.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query6.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query7.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query7.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query8.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query8.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query9.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query9.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query10.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query11.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query11.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query12.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query12.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query17.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query17.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query18.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query18.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query20.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query20.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OLAP/spark_query/result/avro_format_result" beforeDir="false" afterPath="$PROJECT_DIR$/OLAP/spark_query/result/avro_format_result" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,23 +33,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/OLAP/spark_query/result/avro_format_result">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query17.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+            <state relative-caret-position="529">
+              <caret line="30" lean-forward="true" selection-start-line="6" selection-end-line="30" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query9.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/OLAP/spark_query/result/avro_format_result">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="48" lean-forward="true" selection-start-line="6" selection-end-line="48" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="374">
+              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -166,17 +164,11 @@
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query1.py" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query22.py" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query21.py" />
-        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query20.py" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query19.py" />
-        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query18.py" />
-        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query17.py" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query16.py" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query15.py" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query14.py" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query13.py" />
-        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query12.py" />
-        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query11.py" />
-        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query10.py" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query2.py" />
         <option value="$PROJECT_DIR$/OLTP/cockroachdb/config/TRANSACTION_SERIALIZABLE5.xml" />
         <option value="$PROJECT_DIR$/OLTP/cockroachdb/config/TRANSACTION_SERIALIZABLE1.xml" />
@@ -190,6 +182,12 @@
         <option value="$PROJECT_DIR$/OLAP/data_size" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query8.py" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query9.py" />
+        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query10.py" />
+        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query11.py" />
+        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query12.py" />
+        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query20.py" />
+        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query18.py" />
+        <option value="$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query17.py" />
         <option value="$PROJECT_DIR$/OLAP/spark_query/result/avro_format_result" />
       </list>
     </option>
@@ -206,6 +204,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,6 +216,12 @@
               <item name="ADB" type="b2602c69:ProjectViewProjectNode" />
               <item name="ADB" type="462c0819:PsiDirectoryNode" />
               <item name="OLAP" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ADB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ADB" type="462c0819:PsiDirectoryNode" />
+              <item name="OLAP" type="462c0819:PsiDirectoryNode" />
+              <item name="OLAP_Benchmark_queries" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ADB" type="b2602c69:ProjectViewProjectNode" />
@@ -235,7 +240,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -320,18 +324,19 @@
       <workItem from="1547838410128" duration="47000" />
       <workItem from="1547919507669" duration="780000" />
       <workItem from="1548002291643" duration="1649000" />
-      <workItem from="1548406740065" duration="9755000" />
+      <workItem from="1548406740065" duration="10101000" />
+      <workItem from="1548613174766" duration="4368000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191023000" />
+    <option name="totallyTimeSpent" value="195737000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.38018817" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3846154" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -342,10 +347,10 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3261339" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3261339" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002767" side_tool="true" weight="0.3261339" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" weight="0.32543105" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.325054" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32937366" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.32937366" />
@@ -454,18 +459,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/OLTP/postgre/result/TRANSACTION_SERIALIZABLE1.res">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OLTP/postgre/result/TRANSACTION_SERIALIZABLE5.res">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1909" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OLTP/postgre/result/TRANSACTION_REPEATABLE_READ10.res">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1909" />
@@ -539,40 +532,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query20.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query19.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query18.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query17.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -603,46 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
           <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query13.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query12.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query11.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query10.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -855,13 +778,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query9.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="48" selection-start-line="6" selection-end-line="48" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query10.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="38" lean-forward="true" selection-start-line="7" selection-end-line="38" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OLAP/OLAP_Benchmark_queries/11.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-726" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query11.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="34" lean-forward="true" selection-start-line="6" selection-end-line="34" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OLAP/OLAP_Benchmark_queries/12.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/OLAP/spark_query/result/orc_format_result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query9.py">
+    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query12.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
+          <caret line="29" lean-forward="true" selection-start-line="7" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query13.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query20.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
           <caret line="48" lean-forward="true" selection-start-line="6" selection-end-line="48" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query18.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="35" lean-forward="true" selection-start-line="6" selection-end-line="35" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -875,10 +866,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/OLAP/spark_query/query_in_avro_format/spark_query17.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="30" lean-forward="true" selection-start-line="6" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/OLAP/spark_query/result/avro_format_result">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        <state relative-caret-position="374">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
         </state>
       </provider>
     </entry>
