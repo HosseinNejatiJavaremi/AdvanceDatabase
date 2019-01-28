@@ -5,29 +5,11 @@ from pyspark.sql import SQLContext
 sc = SparkContext(appName="query13")
 sqlContext = SQLContext(sc)
 
-customer = spark.read.format("com.databricks.spark.avro")\
+customer = spark.read.format("com.databricks.spark.avro") \
     .load("hdfs://namenode:8020/hossein-avro-data/customer.avro")
 
-lineitem = spark.read.format("com.databricks.spark.avro")\
-    .load("hdfs://namenode:8020/hossein-avro-data/lineitem.avro")
-
-nation = spark.read.format("com.databricks.spark.avro")\
-    .load("hdfs://namenode:8020/hossein-avro-data/nation.avro")
-
-orders = spark.read.format("com.databricks.spark.avro")\
+orders = spark.read.format("com.databricks.spark.avro") \
     .load("hdfs://namenode:8020/hossein-avro-data/orders.avro")
-
-part = spark.read.format("com.databricks.spark.avro")\
-    .load("hdfs://namenode:8020/hossein-avro-data/part.avro")
-
-partsupp = spark.read.format("com.databricks.spark.avro") \
-    .load("hdfs://namenode:8020/hossein-avro-data/partsupp.avro")
-
-region = spark.read.format("com.databricks.spark.avro")\
-    .load("hdfs://namenode:8020/hossein-avro-data/region.avro")
-
-supplier = spark.read.format("com.databricks.spark.avro") \
-    .load("hdfs://namenode:8020/hossein-avro-data/supplier.avro")
 
 from pyspark.sql import functions as F
 
@@ -40,4 +22,5 @@ query13 = query13.groupBy("c_count") \
     .agg(F.count(orders.O_CUSTKEY).alias("custdist"))
 
 query13 = query13.sort(query13.custdist.desc(), query13.c_count.desc())
+
 query13.show()
